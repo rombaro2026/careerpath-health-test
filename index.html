@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script data-cfasync="false" async id="ce-widget-js" src="https://widget.campusexplorer.com/js/widget.js"></script>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -357,14 +358,7 @@
       border-radius: 16px;
       box-shadow: var(--shadow-lg);
       border: 1px solid var(--gray-200);
-    }
-
-    .widget-container iframe {
-      display: block;
-      width: 100%;
-      min-height: 750px;
-      border: none;
-      transition: height 0.3s ease;
+      overflow: hidden;
     }
 
     /* ── TESTIMONIALS ── */
@@ -608,7 +602,7 @@
       <h1>Start Your Healthcare Career in as Little as 4 Weeks</h1>
       <p>No experience or degree required. Phlebotomy certification programs are short, affordable, and in high demand. Find accredited classes near you and take the first step today.</p>
       <div class="widget-container">
-        <iframe src="widget.html" width="100%" frameborder="0" scrolling="auto" id="widget-frame" allow="popups" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation"></iframe>
+        <div class="campusexplorer-widget" data-ce-source="sa-6CCB8C53" data-ce-tracking_code="homepage" data-ce-header_text="Find Phlebotomy Classes Near You" data-ce-intro_text="Enter your ZIP code to see available programs in your area" data-ce-area_of_study="Health Sciences" data-ce-concentration="Phlebotomy"></div>
       </div>
     </div>
   </section>
@@ -796,25 +790,6 @@
   </footer>
 
   <script>
-    // ── Auto-resize iframe ──
-    // The Campus Explorer widget loads cross-origin, so we cannot read
-    // its scrollHeight directly. Instead we rely on:
-    // 1. A generous min-height in CSS (750px) that fits the widget steps
-    // 2. postMessage listener in case the widget sends height updates
-    // 3. Dynamically bump height when widget navigates between steps
-    window.addEventListener('message', function (e) {
-      var iframe = document.getElementById('widget-frame');
-      if (!iframe) return;
-
-      // Accept height from any postMessage with a numeric height
-      if (e.data) {
-        var height = e.data.height || (typeof e.data === 'string' && parseInt(e.data, 10));
-        if (height && height > 100) {
-          iframe.style.height = height + 'px';
-        }
-      }
-    });
-
     // ── FAQ accordion ──
     document.querySelectorAll('.faq-question').forEach(function (btn) {
       btn.addEventListener('click', function () {
