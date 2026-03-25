@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerPath Health — Start Your Healthcare Career Today</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue-900: #1a365d;
+      --blue-700: #2b6cb0;
+      --blue-600: #2c7a7b;
+      --teal-600: #319795;
+      --teal-500: #38b2ac;
+      --teal-50: #e6fffa;
+      --orange-500: #dd6b20;
+      --orange-600: #c05621;
+      --gray-50: #f7fafc;
+      --gray-100: #edf2f7;
+      --gray-200: #e2e8f0;
+      --gray-500: #718096;
+      --gray-600: #4a5568;
+      --gray-700: #2d3748;
+      --gray-800: #1a202c;
+      --white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 14px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+      --radius: 10px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-700);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--gray-200);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--blue-900);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--teal-600);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .nav-cta {
+      background: var(--orange-500);
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange-600);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 140px 24px 80px;
+      background: linear-gradient(170deg, var(--gray-50) 0%, var(--white) 50%, var(--teal-50) 100%);
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--teal-50);
+      color: var(--teal-600);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(56,178,172,0.2);
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.2;
+      color: var(--blue-900);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--orange-500);
+      color: white;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(221,107,32,0.3);
+    }
+
+    .hero-cta:hover {
+      background: var(--orange-600);
+      transform: translateY(-1px);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--blue-900);
+    }
+
+    .hero-stat-label {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* ── SECTION SHARED ── */
+    .section {
+      padding: 80px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    .section-header h2 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      color: var(--blue-900);
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: var(--gray-500);
+      font-size: 1.05rem;
+    }
+
+    /* ── PROGRAMS ── */
+    .programs {
+      background: var(--gray-50);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 32px 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: box-shadow 0.25s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card-icon-cna { background: #ebf8ff; color: #2b6cb0; }
+    .card-icon-lpn { background: #e6fffa; color: #2c7a7b; }
+    .card-icon-phleb { background: #fef5ee; color: #c05621; }
+
+    .card h3 {
+      font-size: 1.25rem;
+      color: var(--blue-900);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .card-description {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .card-details {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .card-detail {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-detail-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-500);
+      font-weight: 600;
+    }
+
+    .card-detail-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-800);
+    }
+
+    .card-btn {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .card-btn-cna { background: #ebf8ff; color: #2b6cb0; }
+    .card-btn-cna:hover { background: #bee3f8; }
+    .card-btn-lpn { background: #e6fffa; color: #2c7a7b; }
+    .card-btn-lpn:hover { background: #b2f5ea; }
+    .card-btn-phleb { background: #fef5ee; color: #c05621; }
+    .card-btn-phleb:hover { background: #feebc8; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+    }
+
+    .testimonial-stars {
+      color: #ecc94b;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    .avatar-1 { background: var(--blue-700); }
+    .avatar-2 { background: var(--teal-600); }
+    .avatar-3 { background: var(--orange-500); }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--gray-800);
+      font-size: 0.95rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      background: linear-gradient(175deg, var(--blue-900) 0%, #1e4e8c 100%);
+      padding: 80px 24px;
+    }
+
+    .form-section .section-header h2 {
+      color: var(--white);
+    }
+
+    .form-section .section-header p {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .form-wrapper {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 44px 40px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-wrapper h3 {
+      font-size: 1.3rem;
+      color: var(--blue-900);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .form-wrapper > p {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--gray-800);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--teal-500);
+      box-shadow: 0 0 0 3px rgba(56,178,172,0.15);
+    }
+
+    .form-group input::placeholder {
+      color: var(--gray-500);
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--orange-500);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(221,107,32,0.3);
+      margin-top: 6px;
+    }
+
+    .form-submit:hover {
+      background: var(--orange-600);
+      transform: translateY(-1px);
+    }
+
+    .form-disclaimer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--gray-200);
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    /* ── SUCCESS TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--blue-900);
+      color: white;
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s;
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero { padding: 120px 20px 60px; }
+      .hero-stats { gap: 28px; }
+      .section { padding: 60px 20px; }
+      .form-wrapper { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .nav-inner { padding: 0 16px; }
+      .hero-cta { padding: 14px 32px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">+</span>
+        CareerPath Health
+      </a>
+      <a href="#apply" class="nav-cta">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-badge">No experience needed to get started</span>
+      <h1>Start Your Healthcare Career in Weeks, Not Years</h1>
+      <p>Compare CNA, LPN, and Phlebotomy programs near you. Find accredited schools, flexible schedules, and a clear path to a job you'll be proud of.</p>
+      <a href="#apply" class="hero-cta">Find Programs Near You &rarr;</a>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">2,400+</div>
+          <div class="hero-stat-label">Students matched</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">350+</div>
+          <div class="hero-stat-label">Partner schools</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">94%</div>
+          <div class="hero-stat-label">Job placement rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="section programs" id="programs">
+    <div class="section-header">
+      <h2>Choose Your Path</h2>
+      <p>Each of these certifications can launch a real healthcare career — no four-year degree required.</p>
+    </div>
+    <div class="cards">
+
+      <!-- CNA -->
+      <div class="card">
+        <div class="card-icon card-icon-cna">&#x1F3E5;</div>
+        <h3>Certified Nursing Assistant (CNA)</h3>
+        <p class="card-description">Help patients with daily activities in hospitals, nursing homes, and clinics. One of the fastest ways into healthcare with strong job demand.</p>
+        <div class="card-details">
+          <div class="card-detail">
+            <span class="card-detail-label">Duration</span>
+            <span class="card-detail-value">4–12 weeks</span>
+          </div>
+          <div class="card-detail">
+            <span class="card-detail-label">Avg. Salary</span>
+            <span class="card-detail-value">$35,000/yr</span>
+          </div>
+          <div class="card-detail">
+            <span class="card-detail-label">Demand</span>
+            <span class="card-detail-value">Very High</span>
+          </div>
+        </div>
+        <a href="#apply" class="card-btn card-btn-cna">Find CNA Schools &rarr;</a>
+      </div>
+
+      <!-- LPN -->
+      <div class="card">
+        <div class="card-icon card-icon-lpn">&#x1FA7A;</div>
+        <h3>Licensed Practical Nurse (LPN)</h3>
+        <p class="card-description">Provide basic nursing care under the supervision of RNs and doctors. A great stepping stone toward becoming a registered nurse.</p>
+        <div class="card-details">
+          <div class="card-detail">
+            <span class="card-detail-label">Duration</span>
+            <span class="card-detail-value">12–18 months</span>
+          </div>
+          <div class="card-detail">
+            <span class="card-detail-label">Avg. Salary</span>
+            <span class="card-detail-value">$54,000/yr</span>
+          </div>
+          <div class="card-detail">
+            <span class="card-detail-label">Demand</span>
+            <span class="card-detail-value">High</span>
+          </div>
+        </div>
+        <a href="#apply" class="card-btn card-btn-lpn">Find LPN Schools &rarr;</a>
+      </div>
+
+      <!-- Phlebotomy -->
+      <div class="card">
+        <div class="card-icon card-icon-phleb">&#x1FA78;</div>
+        <h3>Phlebotomy Technician</h3>
+        <p class="card-description">Draw blood and prepare lab samples in hospitals and clinics. Quick certification with steady demand across healthcare settings.</p>
+        <div class="card-details">
+          <div class="card-detail">
+            <span class="card-detail-label">Duration</span>
+            <span class="card-detail-value">4–8 weeks</span>
+          </div>
+          <div class="card-detail">
+            <span class="card-detail-label">Avg. Salary</span>
+            <span class="card-detail-value">$38,000/yr</span>
+          </div>
+          <div class="card-detail">
+            <span class="card-detail-label">Demand</span>
+            <span class="card-detail-value">High</span>
+          </div>
+        </div>
+        <a href="#apply" class="card-btn card-btn-phleb">Find Phlebotomy Schools &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Real People, Real Results</h2>
+      <p>Hear from students who found the right program and launched their healthcare career.</p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"I graduated high school with no clue what I wanted to do. CareerPath Health connected me with a CNA program 20 minutes from home. Eight weeks later I was certified, and I had a job offer before the ink on my certificate was dry."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar avatar-1">MJ</div>
+          <div>
+            <div class="testimonial-name">Maria Johnson</div>
+            <div class="testimonial-role">CNA &bull; Hired in 3 weeks</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"I was working retail and felt stuck. The phlebotomy program I found through this site fit around my work schedule. Now I'm drawing blood at a children's hospital and actually making a difference."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar avatar-2">DT</div>
+          <div>
+            <div class="testimonial-name">DeShawn Torres</div>
+            <div class="testimonial-role">Phlebotomist &bull; Career changer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"I started as a CNA and the site helped me find an LPN bridge program nearby. I went from making $14/hr to $26/hr in under two years. This was the roadmap I needed."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar avatar-3">KR</div>
+          <div>
+            <div class="testimonial-name">Keisha Robinson</div>
+            <div class="testimonial-role">LPN &bull; CNA-to-LPN graduate</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lead Form -->
+  <section class="form-section" id="apply">
+    <div class="section-header">
+      <h2>Get Matched With Schools Near You</h2>
+      <p>Fill out this quick form and accredited schools will reach out with program details, schedules, and financial aid info.</p>
+    </div>
+    <div class="form-wrapper">
+      <h3>Request Free Information</h3>
+      <p>It takes less than 60 seconds. No commitment, no cost.</p>
+      <form id="lead-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="e.g. Maria" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="e.g. Johnson" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" name="zip" placeholder="e.g. 90210" required maxlength="10">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="program">Which program interests you?</label>
+          <select id="program" name="program" required>
+            <option value="" disabled selected>Select a program...</option>
+            <option value="cna">Certified Nursing Assistant (CNA)</option>
+            <option value="lpn">Licensed Practical Nurse (LPN)</option>
+            <option value="phlebotomy">Phlebotomy Technician</option>
+            <option value="unsure">Not sure yet — help me decide</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Get My Free School Matches &rarr;</button>
+        <p class="form-disclaimer">By submitting, you agree to be contacted by accredited schools regarding their programs. We respect your privacy and will never sell your information.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2026 CareerPath Health. All rights reserved.
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">&#10003; &nbsp;Thank you! Schools in your area will be in touch soon.</div>
+
+  <script>
+    document.getElementById('lead-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Basic validation
+      const fields = this.querySelectorAll('input[required], select[required]');
+      let valid = true;
+
+      fields.forEach(function(field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#e53e3e';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      const email = document.getElementById('email');
+      if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        email.style.borderColor = '#e53e3e';
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Show success toast
+      var toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 4000);
+
+      // Reset form
+      this.reset();
+    });
+
+    // Clear validation styling on input
+    document.querySelectorAll('#lead-form input, #lead-form select').forEach(function(el) {
+      el.addEventListener('input', function() {
+        this.style.borderColor = '';
+      });
+    });
+  </script>
+
+</body>
+</html>
