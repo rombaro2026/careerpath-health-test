@@ -123,7 +123,7 @@
     }
 
     .hero-inner {
-      max-width: 720px;
+      max-width: 820px;
       margin: 0 auto;
     }
 
@@ -349,15 +349,10 @@
       line-height: 1.65;
     }
 
-    /* ── WIDGET SECTION ── */
-    .widget-section {
-      padding: 88px 24px;
-      background: linear-gradient(175deg, var(--teal-50) 0%, var(--white) 100%);
-    }
-
+    /* ── WIDGET CONTAINER ── */
     .widget-container {
-      max-width: 780px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 32px auto 0;
       background: var(--white);
       border-radius: 16px;
       box-shadow: var(--shadow-lg);
@@ -582,8 +577,7 @@
     @media (max-width: 640px) {
       .hero { padding: 120px 20px 60px; }
       .section { padding: 64px 20px; }
-      .widget-section { padding: 64px 20px; }
-      .steps-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+.steps-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
       .stats-bar-inner { gap: 6px 12px; padding: 16px 20px; }
       .stat-item { font-size: 0.82rem; }
       .stat-divider { display: none; }
@@ -608,12 +602,14 @@
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="widget">
     <div class="hero-inner">
       <span class="hero-badge">Classes starting soon near you</span>
       <h1>Start Your Healthcare Career in as Little as 4 Weeks</h1>
       <p>No experience or degree required. Phlebotomy certification programs are short, affordable, and in high demand. Find accredited classes near you and take the first step today.</p>
-      <a href="#widget" class="btn-primary">Find Classes Near You &rarr;</a>
+      <div class="widget-container">
+        <iframe src="widget.html" width="100%" frameborder="0" scrolling="auto" id="widget-frame" allow="popups" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation"></iframe>
+      </div>
     </div>
   </section>
 
@@ -688,16 +684,6 @@
     </div>
   </section>
 
-  <!-- Widget Section -->
-  <section class="widget-section" id="widget">
-    <div class="section-header">
-      <h2>Find Classes Near You</h2>
-      <p>Enter your ZIP code below to see phlebotomy training programs available in your area.</p>
-    </div>
-    <div class="widget-container">
-      <iframe src="widget.html" width="100%" frameborder="0" scrolling="auto" id="widget-frame" allow="popups" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation"></iframe>
-    </div>
-  </section>
 
   <!-- Testimonials -->
   <section class="section">
