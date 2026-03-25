@@ -362,14 +362,14 @@
       border-radius: 16px;
       box-shadow: var(--shadow-lg);
       border: 1px solid var(--gray-200);
-      overflow: hidden;
     }
 
     .widget-container iframe {
       display: block;
       width: 100%;
-      min-height: 400px;
+      min-height: 750px;
       border: none;
+      transition: height 0.3s ease;
     }
 
     /* ── TESTIMONIALS ── */
@@ -695,7 +695,7 @@
       <p>Enter your ZIP code below to see phlebotomy training programs available in your area.</p>
     </div>
     <div class="widget-container">
-      <iframe src="widget.html" width="100%" frameborder="0" scrolling="no" id="widget-frame"></iframe>
+      <iframe src="widget.html" width="100%" frameborder="0" scrolling="auto" id="widget-frame"></iframe>
     </div>
   </section>
 
@@ -811,38 +811,21 @@
 
   <script>
     // ── Auto-resize iframe ──
-    function resizeWidgetFrame() {
+    // The Campus Explorer widget loads cross-origin, so we cannot read
+    // its scrollHeight directly. Instead we rely on:
+    // 1. A generous min-height in CSS (750px) that fits the widget steps
+    // 2. postMessage listener in case the widget sends height updates
+    // 3. Dynamically bump height when widget navigates between steps
+    window.addEventListener('message', function (e) {
       var iframe = document.getElementById('widget-frame');
       if (!iframe) return;
 
-      try {
-        var body = iframe.contentDocument || iframe.contentWindow.document;
-        var newHeight = body.documentElement.scrollHeight || body.body.scrollHeight;
-        if (newHeight && newHeight > 50) {
-          iframe.style.height = newHeight + 'px';
+      // Accept height from any postMessage with a numeric height
+      if (e.data) {
+        var height = e.data.height || (typeof e.data === 'string' && parseInt(e.data, 10));
+        if (height && height > 100) {
+          iframe.style.height = height + 'px';
         }
-      } catch (e) {
-        // Cross-origin fallback: listen for postMessage from widget
-      }
-    }
-
-    var widgetFrame = document.getElementById('widget-frame');
-    widgetFrame.addEventListener('load', function () {
-      resizeWidgetFrame();
-      // Re-check periodically as widget content may load async
-      var checks = 0;
-      var resizeInterval = setInterval(function () {
-        resizeWidgetFrame();
-        checks++;
-        if (checks >= 20) clearInterval(resizeInterval);
-      }, 500);
-    });
-
-    // Also listen for postMessage-based resize (if widget supports it)
-    window.addEventListener('message', function (e) {
-      if (e.data && e.data.type === 'resize' && e.data.height) {
-        var iframe = document.getElementById('widget-frame');
-        if (iframe) iframe.style.height = e.data.height + 'px';
       }
     });
 
